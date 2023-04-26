@@ -3,6 +3,7 @@
  * @param {number} contactId
  * @returns
  */
+
 async function getContact(contactId) {
   const resp = await $.ajax({
     url: `/contacts/${contactId}`,
@@ -24,3 +25,9 @@ getContact(1).then((contact) => {
 getContact(2).then((contact) => {
   console.log("Contact: ", JSON.stringify(contact));
 });
+
+function printstuff() {
+  console.log("stuff");
+}
+
+printstuff();
