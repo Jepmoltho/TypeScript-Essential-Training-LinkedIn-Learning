@@ -1,7 +1,7 @@
 /**
- * 
- * @param {number} contactId 
- * @returns 
+ *
+ * @param {number} contactId
+ * @returns
  */
 async function getContact(contactId) {
   const resp = await $.ajax({
@@ -17,7 +17,7 @@ async function getContact(contactId) {
 }
 
 getContact(1).then((contact) => {
-  contact.id = 1234
+  contact.id = 1234;
   contact.birthDate = new Date("12/12/1990");
 });
 
