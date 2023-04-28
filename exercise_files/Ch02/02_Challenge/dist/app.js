@@ -1,0 +1,39 @@
+var programmingLanugages;
+(function (programmingLanugages) {
+    programmingLanugages["HTML"] = "Learn HTML";
+    programmingLanugages["TS"] = "Learn TypeScript";
+    programmingLanugages["REACT"] = "Learn React";
+})(programmingLanugages || (programmingLanugages = {}));
+var statusses;
+(function (statusses) {
+    statusses["DONE"] = "Done";
+    statusses["INPROGRESS"] = "In progress";
+    statusses["TODO"] = "To do";
+})(statusses || (statusses = {}));
+//prettier-ignore
+let todoItems = [
+    { id: 1, title: programmingLanugages.HTML, status: statusses.DONE, completedOn: new Date("2021-09-11") },
+    { id: 2, title: programmingLanugages.TS, status: statusses.INPROGRESS },
+    { id: 3, title: programmingLanugages.REACT, status: statusses.TODO }
+];
+//prettier-ignore
+//Apply param types and retun values to theese functions
+function addTodoItem(todo) {
+    const id = getNextId(todoItems);
+    const newTodo = {
+        id,
+        title: todo,
+        //Strongly type some harcoded values with an enum 
+        status: statusses.TODO,
+    };
+    todoItems.push(newTodo);
+    return newTodo;
+}
+//prettier-ignore
+//Apply param types and retun values to theese functions. Use a generic parameter
+function getNextId(items) {
+    return items.reduce((max, x) => x.id > max ? x.id : max, 0) + 1;
+}
+//prettier-ignore
+const newTodo = addTodoItem("Buy lots of stuff with all the money we make from the app");
+console.log(JSON.stringify(newTodo));
