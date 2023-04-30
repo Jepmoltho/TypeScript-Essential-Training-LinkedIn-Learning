@@ -45,7 +45,7 @@ function addTodoItem(todo: string) : object{
 
 //prettier-ignore
 //Apply param types and retun values to theese functions. Use a generic parameter
-function getNextId<T extends codeToDo>(items: T[]) : number {
+function getNextId<T extends {id:number}>(items: T[]) : number {
     return items.reduce((max, x) => x.id > max ? x.id : max, 0) + 1
 }
 
